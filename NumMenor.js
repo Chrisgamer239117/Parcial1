@@ -1,6 +1,6 @@
-var num1 =Math.floor(Math.random()*19)+1;
-var num2 =Math.floor(Math.random()*19)+1;
-var num3 =Math.floor(Math.random()*19)+1;
+var num1 =Math.floor(Math.random()*20);
+var num2 =Math.floor(Math.random()*20);
+var num3 =Math.floor(Math.random()*20);
 
 console.log(num1);
 console.log(num2);
