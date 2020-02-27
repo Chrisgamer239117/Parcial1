@@ -1,22 +1,25 @@
-var BMW=0,ferrari=0,t=1;
-console.log("El Ganador es : "+ race());
+
+race();
 function race()
 {
+    var Flash=0,Sonic=0,t=-1,ft=0,st=0;
     do{
-        var num =Math.floor(Math.random()*6+1);
+        var num =dado();
         if(num==6)
         {   
             var p=3;
             if(t>0)
             {
-                BMW+=p;
-                console.log("Avanza BMW: "+p)
+                Flash+=p;
+                console.log("Avanza Flash: "+p)
                 t*=-1
+                ft+=p;
             }else
             {
-                console.log("Avanza ferrari: "+p)
-                ferrari+=p;
-                t*=-1;  
+                console.log("Avanza Sonic: "+p)
+                Sonic+=p;
+                t*=-1;
+                st+=p;  
             } 
         }else 
         {   
@@ -24,14 +27,16 @@ function race()
                 var p=1;
                 if(t>0)
                 {
-                    BMW+=p;
-                    console.log("Avanza BMW: "+p)
-                    t*=-1
+                    Flash+=p;
+                    console.log("Avanza Flash: "+p)
+                    t*=-1;
+                    ft+=p;
                 }else
                 {
-                    console.log("Avanza ferrari: "+p)
-                    ferrari+=p;
-                    t*=-1;  
+                    console.log("Avanza Sonic: "+p)
+                    Sonic+=p;
+                    t*=-1;
+                    st+=p;  
                 }
             }else
             {    
@@ -40,26 +45,38 @@ function race()
                     var p=2;
                     if(t>0)
                     {
-                        BMW+=p;
-                        console.log("Avanza BMW: "+p)
-                        t*=-1
+                        Flash+=p;
+                        console.log("Avanza Flash: "+p)
+                        t*=-1;
+                        ft+=p;
                     }else
                     {
-                        console.log("Avanza ferrari: "+p)
-                        ferrari+=p;
-                        t*=-1;  
+                        console.log("Avanza Sonic: "+p)
+                        Sonic+=p;
+                        t*=-1;
+                        st+=p;   
                     } 
                 }
             }
         }                     
-    }while(BMW!=100 && ferrari!=100 )
-    if(ferrari==100)
+    }while(Flash!=100 && Sonic!=100 )
+    console.log("Flash avanzo "+ft)
+    console.log("Sonic avanzo "+st)
+    if(Sonic==100)
     {
-        console.log("El Ganador es: ferrari");
+        console.log("El Ganador es: Sonic");
     }
     else
     {
-        console.log("El Ganador es: BMW");
+        console.log("El Ganador es: Flash");
     }
-
+    
 }
+
+function dado()
+{
+       var num =Math.floor(Math.random()*6+1);
+       return num;
+}
+
+
