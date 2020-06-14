@@ -1,0 +1,18 @@
+[
+    {
+      "Empresa": "Marvel",
+      "Nombre": "Civil War",
+      "Autor": "Noxus",
+      "Cantidad": "8",
+      "Costo": "2300",
+      "id": 1
+    },
+    {
+      "Empresa": "DC",
+      "Nombre": "Flashpoint",
+      "Autor": "Noxus",
+      "Cantidad": "5",
+      "Costo": "2500",
+      "id": 2
+    }
+  ]

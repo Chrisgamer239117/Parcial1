@@ -1,0 +1,57 @@
+const { Router, response } = require('express');
+const router = Router();
+const underscore = require('underscore');
+const comic = require('../datos.json');
+const cors = require("cors"); 
+
+//get
+router.get('/',cors(),(req,res)=>{
+    console.log(comic);
+    res.json(comic);
+});
+
+//post
+router.post('/comic',cors(),(req,res)=>{
+    const {Empresa,Nombre,Autor,Cantidad,Costo} = req.body;
+    if (Empresa && Nombre && Autor && Cantidad && Costo){
+        const id = comic.length + 1;
+        const newComic= {...req.body, id};
+        console.log(newComic);
+        comic.push(newComic);
+        res.json(comic);
+    }
+    else
+        res.send('peticion erronea');
+});
+//put
+router.put('/:id',cors(),(req,res)=>{
+    const { id } = req.params;
+    const {Empresa,Nombre,Autor,Cantidad,Costo} = req.body;
+    if (Empresa && Nombre && Autor && Cantidad && Costo){
+        underscore.each(comic,(comic,i)=>{
+            if(comic.id== id){
+                comic.Empresa= Empresa;
+                comic.Nombre = Nombre;
+                comic.Autor = Autor;
+                comic.Cantidad = Cantidad;
+                comic.Costo = Costo;
+            }
+        });
+        res.json(comic);
+    }
+    else{
+        res.send("ERROR");
+    }
+
+});
+//delete
+router.delete('/:id',cors(),(req,res)=>{
+    const { id } = req.params;
+    underscore.each(comic,(comic, i)=>{
+        if(comic.id == id){
+            comic.splice(i,1);
+        }
+    });
+    res.send(comic);
+});
+module.exports = router;
